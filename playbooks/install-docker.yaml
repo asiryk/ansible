@@ -1,7 +1,7 @@
 # Run this playbook with sudo
 ---
 - name: Install Docker
-- hosts: localhost
+  hosts: localhost
   tasks:
   - name: Install dnf-plugins-core (in case they are not installed)
     shell: dnf -y install dnf-plugins-core

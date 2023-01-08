@@ -1,0 +1,17 @@
+---
+- name: Install dnf programs
+  hosts: localhost
+  tasks:
+  - name: Install dnf programs
+    shell: dnf -y install
+      xclip
+      xset
+      brightnessctl
+      ripgrep
+      fd-find
+      alacritty
+      g++
+      luarocks
+      git-delta
+      stow
+      btop
