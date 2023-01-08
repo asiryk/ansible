@@ -1,0 +1,23 @@
+# Run this playbook with sudo
+---
+- name: Install Docker
+- hosts: localhost
+  tasks:
+  - name: Install dnf-plugins-core (in case they are not installed)
+    shell: dnf -y install dnf-plugins-core
+
+  - name: Add repo to dnf
+    shell: dnf config-manager --add-repo https://download.docker.com/linux/fedora/docker-ce.repo
+
+  - name: Download and install docker engine
+    shell: dnf -y install docker-ce docker-ce-cli containerd.io docker-compose docker-compose-plugin
+
+  - name: Create a docker user group
+    shell: groupadd docker
+
+  # Probably it will be required to re-login to the system after that command
+  - name: Add the user to docker user group
+    shell: usermod -aG docker $USER
+      
+  - name: Start Docker daemon
+    shell: systemctl start docker
