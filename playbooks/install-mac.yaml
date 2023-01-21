@@ -1,0 +1,10 @@
+---
+- name: Set up Mac
+- hosts: localhost
+  tasks:
+  - name: System settings
+    shell: |
+        defaults write com.apple.dock autohide-delay -float 0
+        defaults write com.apple.dock autohide-time-modifier -float 0.8
+        killall Dock
+        defaults write -g ApplePressAndHoldEnabled -bool false
