@@ -15,3 +15,6 @@
       git-delta
       stow
       btop
+  - name: Make alacritty borders look "normal" on Wayland
+    shell: sed -i "s/Exec=alacritty/Exec=env -u WAYLAND_DISPLAY alacritty/"
+      Alacritty.desktop
