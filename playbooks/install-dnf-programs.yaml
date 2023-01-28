@@ -9,12 +9,21 @@
       brightnessctl
       ripgrep
       fd-find
+      fzf
       alacritty
       g++
       luarocks
       git-delta
       stow
       btop
+  - name: Stow the configuration
+    shell:
+      rm ~/.zshenv
+      stow ~/.dotfiles/zsh
+      stow ~/.dotfiles/alacritty
+      stow ~/.dotfiles/tmux
+      stow ~/.dotfiles/lf
+      stow ~/.dotfiles/.gitconfig
   - name: Make alacritty borders look "normal" on Wayland
     shell: sed -i "s/Exec=alacritty/Exec=env -u WAYLAND_DISPLAY alacritty/"
       Alacritty.desktop
